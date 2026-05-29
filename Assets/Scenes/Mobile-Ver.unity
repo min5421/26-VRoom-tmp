@@ -758,7 +758,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 614402865}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e19747de3f5aca642ab2be37e372fb86, type: 3}
   m_Name: 
@@ -1125,12 +1125,12 @@ MonoBehaviour:
   headLabelText: {fileID: 614402868}
   sttStreamReceiver: {fileID: 463198396}
   providerType: 1
-  whisperServerUrl: ws://127.0.0.1:8000/ws/stt
+  whisperServerUrl: wss://ey55616--vroom-realtime-stt-fastapi-app.modal.run/ws/stt
   useFaceTrackingSubtitle: 1
   fixedSubtitlePosition: {x: 0, y: -260}
   visibleSeconds: 3
-  fadeSeconds: 1
-  maxCharacters: 90
+  fadeSeconds: 0.35
+  maxCharacters: 200
 --- !u!114 &937679134
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1246,7 +1246,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7e30db3eeac94ce590dcc3ffb3a8e8a9, type: 3}
-  m_Name:
+  m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MobileARModeController
   startupMode: 0
   applyStartupModeOnStart: 1
@@ -1327,6 +1327,7 @@ GameObject:
   - component: {fileID: 1348300144}
   - component: {fileID: 1348300143}
   - component: {fileID: 1348300142}
+  - component: {fileID: 1348300146}
   m_Layer: 5
   m_Name: HeadSubtitlePanel
   m_TagString: Untagged
@@ -1352,7 +1353,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 600, y: 120}
+  m_SizeDelta: {x: 800, y: 120}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1348300142
 MonoBehaviour:
@@ -1370,14 +1371,10 @@ MonoBehaviour:
   wordTextTemplate: {fileID: 1808596504}
   subtitleCanvasGroup: {fileID: 1348300143}
   subtitleBackground: {fileID: 1348300144}
-  maxVisibleLines: 2
-  lineHeight: 56
-  wordSpacing: 8
-  wordFadeDuration: 0.18
-  lineMoveDuration: 0.35
-  lineFadeDuration: 0.4
+  maxVisibleLines: 10
+  clearTextAfterFadeOut: 1
   boxFadeDuration: 0.35
-  hideDelay: 3.5
+  hideDelay: 3
   backgroundAlpha: 0
 --- !u!225 &1348300143
 CanvasGroup:
@@ -1429,6 +1426,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1348300140}
   m_CullTransparentMesh: 1
+--- !u!114 &1348300146
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1348300140}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3312d7739989d2b4e91e6319e9a96d76, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.RectMask2D
+  m_Padding: {x: 0, y: 0, z: 0, w: 0}
+  m_Softness: {x: 0, y: 0}
 --- !u!1 &1462840161
 GameObject:
   m_ObjectHideFlags: 0
@@ -1527,23 +1538,6 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_RaycastPrefab: {fileID: 0}
---- !u!114 &1528904940
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1528904934}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: caeceacb624484daf8e379c2252fd246, type: 3}
-  m_Name:
-  m_EditorClassIdentifier: Unity.XR.ARFoundation::UnityEngine.XR.ARFoundation.ARFaceManager
-  <trackablesChanged>k__BackingField:
-    m_PersistentCalls:
-      m_Calls: []
-  m_FacePrefab: {fileID: 100000, guid: 20f222035a74441ba55a710a3607d5fd, type: 3}
-  m_MaximumFaceCount: 1
 --- !u!114 &1528904936
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1607,6 +1601,23 @@ Transform:
   - {fileID: 785907825}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1528904940
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1528904934}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: caeceacb624484daf8e379c2252fd246, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.XR.ARFoundation::UnityEngine.XR.ARFoundation.ARFaceManager
+  <trackablesChanged>k__BackingField:
+    m_PersistentCalls:
+      m_Calls: []
+  m_FacePrefab: {fileID: 100000, guid: 20f222035a74441ba55a710a3607d5fd, type: 3}
+  m_MaximumFaceCount: 1
 --- !u!1 &1635685651
 GameObject:
   m_ObjectHideFlags: 0
@@ -1901,11 +1912,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\uC548\uB155\uD558\uC138\uC694 \uC624\uB298 \uB0A0\uC528\uAC00 \uB108\uBB34
-    \uC88B\uC544\uC11C \uC0B0\uCC45\uC744 \uB098\uAC00\uB824 \uD569\uB2C8\uB2E4"
+  m_text: 
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 7ec78cd0c9184a945a513c277121c3e4, type: 2}
-  m_sharedMaterial: {fileID: 254148879617635945, guid: 7ec78cd0c9184a945a513c277121c3e4, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 7ed34cd2d84df2e48a34fbb5d63fd6c9, type: 2}
+  m_sharedMaterial: {fileID: 3589371107990252850, guid: 7ed34cd2d84df2e48a34fbb5d63fd6c9, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1929,15 +1939,15 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 34
-  m_fontSizeBase: 34
+  m_fontSize: 50
+  m_fontSizeBase: 50
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
   m_HorizontalAlignment: 2
-  m_VerticalAlignment: 4096
+  m_VerticalAlignment: 1024
   m_textAlignment: 65535
   m_characterSpacing: 0
   m_characterHorizontalScale: 1
@@ -1968,7 +1978,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_margin: {x: 0, y: 0, z: 0, w: 1}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -2046,7 +2056,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &2111943445
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2063,7 +2073,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: -61.6}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2111943446

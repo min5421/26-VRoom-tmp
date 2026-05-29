@@ -20,7 +20,8 @@
 
         <!--Used when Application Entry is set to GameActivity, otherwise remove this activity block-->
         <activity android:name="com.unity3d.player.UnityPlayerGameActivity"
-                  android:theme="@style/BaseUnityGameActivityTheme">
+                  android:theme="@style/BaseUnityGameActivityTheme"
+                  android:screenOrientation="fullSensor">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />

@@ -136,45 +136,40 @@ public class SpeechToTextManager : MonoBehaviour
 
     private void HandlePartialText(string text)
     {
-        if (sttStreamReceiver == null)
-            SetSubtitle(text);
-    }
-
-    private void HandleFinalText(string text)
-    {
-        Debug.Log($"STT Final: {text}");
+        if (string.IsNullOrWhiteSpace(text))
+            return;
 
         if (sttStreamReceiver != null)
         {
-            SendFinalTextToReceiver(text);
+            sttStreamReceiver.OnPartialTextReceived(text);
             return;
         }
 
         SetSubtitle(text);
     }
 
-    private void SendFinalTextToReceiver(string text)
+    private void HandleFinalText(string text)
     {
-        if (sttStreamReceiver == null || string.IsNullOrWhiteSpace(text))
+        if (string.IsNullOrWhiteSpace(text))
             return;
 
-        string[] words = text.Split(
-            new char[] { ' ', '\t', '\n', '\r' },
-            System.StringSplitOptions.RemoveEmptyEntries
-        );
+        Debug.Log($"STT Final: {text}");
 
-        foreach (string word in words)
+        if (sttStreamReceiver != null)
         {
-            sttStreamReceiver.OnTokenReceived(word.Trim());
+            sttStreamReceiver.OnFinalTextReceived(text);
+            return;
         }
 
-        sttStreamReceiver.OnTokenReceived("\n");
+        SetSubtitle(text);
     }
 
     private void SetSubtitle(string text)
     {
-        if (headLabelText == null || string.IsNullOrEmpty(text))
+        if (headLabelText == null || string.IsNullOrWhiteSpace(text))
             return;
+
+        text = text.Trim();
 
         if (text.Length > maxCharacters)
             text = text.Substring(text.Length - maxCharacters);
