@@ -1,0 +1,125 @@
+# =========================
+# Unity Generated
+# =========================
+
+[Ll]ibrary/
+[Tt]emp/
+[Oo]bj/
+[Bb]uild/
+[Bb]uilds/
+[Ll]ogs/
+[Uu]ser[Ss]ettings/
+[Mm]emory[Cc]aptures/
+[Rr]ecordings/
+
+# =========================
+# IDE / Editor
+# =========================
+
+.vscode/
+.vs/
+.idea/
+.consulo/
+
+# =========================
+# Visual Studio / Rider
+# =========================
+
+*.csproj
+*.unityproj
+*.sln
+*.slnx
+*.suo
+*.tmp
+*.user
+*.userprefs
+*.pidb
+*.booproj
+*.svd
+*.pdb
+*.mdb
+*.opendb
+*.VC.db
+*.DotSettings.user
+
+# =========================
+# Unity Generated Metadata
+# =========================
+
+*.pidb.meta
+*.pdb.meta
+*.mdb.meta
+
+# =========================
+# Build Outputs
+# =========================
+
+*.apk
+*.aab
+*.app
+*.unitypackage
+
+# =========================
+# Local STT Server
+# =========================
+
+/stt-server/.env
+/stt-server/.venv/
+/stt-server/venv/
+/stt-server/__pycache__/
+/stt-server/**/*.pyc
+
+# =========================
+# Crash / Logs
+# =========================
+
+sysinfo.txt
+mono_crash.*
+crashlytics-build.properties
+crashlytics-buildid.txt
+*.log
+*.dmp
+
+# =========================
+# Blender
+# =========================
+
+*.blend1
+*.blend1.meta
+
+# =========================
+# Addressables
+# =========================
+
+/ServerData
+/[Aa]ssets/StreamingAssets/aa*
+/[Aa]ssets/Addressables_Temp*
+/[Aa]ssets/AddressableAssetsData/*/*.bin*
+
+# =========================
+# Visual Scripting
+# =========================
+
+/[Aa]ssets/Unity.VisualScripting.Generated/
+
+# =========================
+# Plastic SCM
+# =========================
+
+.plastic/
+ignore.conf
+*.private.0
+
+# =========================
+# OS Files
+# =========================
+
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# =========================
+# Keep Unity Meta Files
+# =========================
+
+!/[Aa]ssets/**/*.meta
